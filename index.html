@@ -1,0 +1,241 @@
+<html>
+<head>
+    <style>
+        .container {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        /*  1st Day! */
+        .hug-container {
+            display:flex;
+            flex-direction: row;
+            border: 5px solid #9a9a9a;
+            border-style: groove;
+        }
+        .img-container {
+            width: 500px;
+            height: 500px; 
+        }
+        .pass-through-robot, .pass-through-dog {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            transition: transform 3s; 
+        }
+
+        .pass-through-robot {
+            justify-content: left;
+            animation-name: dance;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes dance {
+            0% { transform: translateX(100px)}
+            15% { transform: translateX(300px)}
+            50% { transform: translateX(500px)}
+            75% { transform: translateX(700px)}
+            100% { transform: translateX(1000px)}
+        }
+
+        .pass-through-dog {
+            justify-content: right;
+            animation-name: oppositeDance;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes oppositeDance {
+            0% { transform: translateX(500px)}
+            15% { transform: translateX(500px)}
+            50% { transform: translateX(300px)}
+            75% {
+                    opacity: 0.5; 
+                    transform: translateX(100px)
+                }
+            100% {
+                    opacity: 0.5; 
+                    transform: translateX(-300px)
+                }
+        }
+
+        /* 2nd Day! */
+        .jump-container {
+            border: 5px solid #9a9a9a;
+            border-style: groove;
+        }
+        .jump-robot-container {
+            width: 500px;
+            height: 1200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /* align-self: flex-end; */
+        }
+        .jump-robot {
+            justify-content: left;
+            animation-name: jumpu;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            transition: transform 10s;
+        }
+        @keyframes jumpu {
+            0%  { transform: translate(0px,100px);}
+            10% { transform: translate(100px,-100px);}
+            20% { transform: translate(400px,250px);}
+            30% { transform: translate(600px,-100px);}
+            40% { transform: translate(800px,250px);} 
+            50% { 
+                    transform: translate(1000px,250px) rotate3d(0,100,0,200deg);
+                }
+            60% { transform: translate(800px,-100px) rotate3d(0,100,0,200deg);}
+            70% { transform: translate(600px,250px) rotate3d(0,100,0,200deg);}
+            80% { transform: translate(400px,-100px) rotate3d(0,100,0,200deg);}
+            90% { transform: translate(100px,250px) rotate3d(0,100,0,200deg);}
+            100% { transform: translate(0px,100px) rotate3d(0,100,0,200deg);}
+        }
+
+        .dance-container {
+            border: 5px solid #9a9a9a;
+            border-style: groove;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 150px
+        }
+
+        .head {
+            border-radius:50px;
+            background-color: coral;
+            height: 100px;
+            width: 100px;
+            animation: head-dance 4s linear infinite alternate;
+        }
+        .middle-body{
+            position: relative;
+            animation: body-dance 4s linear infinite alternate;
+        }
+        .tummy {
+            background-color: coral;
+            height: 150px;
+            width: 200px;
+            border-radius: 10px;
+        }
+        .legs {
+            display: flex;
+            flex-direction: row;
+        }
+        .leftleg, .rightleg {
+            background-color: coral;
+            height: 150px;
+            width: 40px;
+            border-bottom-radius: 10px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-top: -20px;
+        }
+        .hands{
+            position: relative;
+        }
+
+        .lefthand {
+        
+            width: 30px;
+            height: 200px;
+            background-color: coral;
+            position: absolute;
+            top: -160px;
+            left: 5px;
+            animation: left-dance 4s linear infinite alternate;
+        }
+
+        .righthand {
+            width: 30px;
+            height: 205px;
+            background-color: coral;
+            position: absolute;
+            top: -160px;
+            left: 165px;
+            animation: right-dance 4s linear infinite alternate;
+        }
+
+        @keyframes left-dance {
+            
+            50%, 75%, to { transform-origin: 150% 100%; }
+            25% { transform: rotate(-10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        @keyframes right-dance {
+            50%, 75%, to { transform-origin: 80% 100%; }
+            25% { transform: rotate(10deg); } 
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        @keyframes head-dance {
+            
+            50%, 75%, to { transform-origin: 80% 60%; }
+            25% { transform: rotate(-10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        @keyframes body-dance {
+            50%, 75%, to { transform-origin: 80% 60%; }
+            25% { transform: rotate(-5deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+
+        /* 3rd Day! */
+
+    </style>
+    <title>Some random animations!</title>
+</head>
+<body class="container">
+    <h3>1st Day!</h3>
+    <section class="hug-container" title="Dog and Robot wants to hug!">
+        <section class="img-container">
+                <img class="pass-through-robot" src="./cop.jpg" />
+        </section>
+        <section class="img-container">
+                <img class="pass-through-dog" src="./dog.jpg" />
+        </section>
+    </section>
+
+    <h3>2nd Day!</h3>
+    <section class="jump-container" title="Robot is gona jump!">
+        <section class="jump-robot-container">
+            <img class="jump-robot" src="./cop.jpg" />
+        </section>
+    </section>
+
+    <h3>2nd day continued to dance!</h3>
+    <section class="dance-container" title="Man is gona dance, hit the beat!">
+            <section class="head"></section>
+            <section class="middle-body">
+                <section class="lefthand"></section>
+                <section class="tummy"></section>
+                <section class="righthand"></section>
+            </section>
+            <section class="legs">
+                <section class="leftleg"></section>
+                <section class="rightleg"></section>
+            </section>
+            <!-- <section class="hands">
+                <section class="lefthand"></section>
+                <section class="righthand"></section>
+            </section> -->
+            
+    </section>
+</body>
+</html>
